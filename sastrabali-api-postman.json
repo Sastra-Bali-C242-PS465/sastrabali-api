@@ -1,0 +1,907 @@
+{
+	"info": {
+		"_postman_id": "182d9a4f-6c05-43c5-9ca7-4d68b84fb223",
+		"name": "Sabi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25810384"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Regiter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sastrabaliadmin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/auth/register",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "sastrabaliadmin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/auth/login",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/auth/logout",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Aksara Bali Dasar",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Aksara bali dasar",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/Aksara_Bali_polih_tedung.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/groups/",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/groups/",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/groups/1",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/groups/1",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Quiz group 2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Deskripsi quiz group 2",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/kitten.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/groups/2",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quizes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/groups/1/quizes",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"groups",
+								"1",
+								"quizes"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/aksara-normal/ga/ga_01.jpg"
+								},
+								{
+									"key": "options",
+									"value": "Nya",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Ga",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Ra",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Ca",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "groupId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/questions/",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"questions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/questions/28",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"questions",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "options",
+									"value": "Nya",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Ba",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Nga",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "Na",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/questions/28",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"questions",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/questions/3",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"questions",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/questions",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Create soal quiz untuk user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_STUDENT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "groupId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/user-answer-groups",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"user-answer-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get soal quiz untuk user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_STUDENT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/user-answer-groups/2",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"user-answer-groups",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quiz Submission",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_STUDENT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userAnswerGroupId\": 1,\n    \"quizAnswers\": [\n        {\n            \"userAnswerId\": 1,\n            \"optionId\": 61\n        },\n        {\n            \"userAnswerId\": 2,\n            \"optionId\": 9\n        },\n        {\n            \"userAnswerId\": 3,\n            \"optionId\": 89\n        },\n        {\n            \"userAnswerId\": 4,\n            \"optionId\": 81\n        },\n        {\n            \"userAnswerId\": 5,\n            \"optionId\": 69\n        },\n        {\n            \"userAnswerId\": 6,\n            \"optionId\": 65\n        },\n        {\n            \"userAnswerId\": 7,\n            \"optionId\": 21\n        },\n        {\n            \"userAnswerId\": 8,\n            \"optionId\": 33\n        },\n        {\n            \"userAnswerId\": 9,\n            \"optionId\": 13\n        },\n        {\n            \"userAnswerId\": 10,\n            \"optionId\": 17\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}api/user-answer-groups",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"user-answer-groups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/users/",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_STUDENT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/kitten.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/users/2",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reading",
+			"item": [
+				{
+					"name": "Add Reading",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Materi 1",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "<h1>Materi 1 </h1>",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/kitten.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/readings",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"readings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reading By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/readings/3",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"readings",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Readings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/readings",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"readings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Reading",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/readings/2",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"readings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reading",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/readings/2",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"readings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Predictions",
+			"item": [
+				{
+					"name": "Post Prediction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/stevenchan/Downloads/aksara-normal/ha/ha_01.jpg"
+								},
+								{
+									"key": "result",
+									"value": "ha",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}api/predictions",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"predictions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Predictions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}api/predictions",
+							"host": [
+								"{{HOST}}api"
+							],
+							"path": [
+								"predictions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
